@@ -205,7 +205,9 @@ class MealsPage : AppCompatActivity() {
 }  
 
 PICS OF APP 
+
 ![firstpage](https://github.com/user-attachments/assets/87e8932e-57e4-4c01-b14d-eb74a53b987d)
+
 ![secondpage](https://github.com/user-attachments/assets/01ceb0be-3730-405e-8e22-a41e17b94ae7)
 
 
