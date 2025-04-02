@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.EditText
+import android.util.Log
 
 class MealsPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,41 +43,51 @@ class MealsPage : AppCompatActivity() {
            // Get the time entered by the user
            val time = EdtTime.text.toString()
            // Suggest a meal based on the time entered by the user
+           Log.d("MealsPage", "Time entered: $time")
            if (time == "Morning") {
                // Suggest a random meal from the morningMeals list
                val meal = morningMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
            } else if (time == "MidM") {
                // Suggest a random meal from the midMorningMeals list
                val meal = midMorningMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
                } else if (time == "Afternoon") {
                    // Suggest a random meal from the afternoonMeals list
                val meal = afternoonMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
            } else if (time == "MidA") {
                // Suggest a random meal from the midAfternoonMeals list
                val meal = midAfternoonMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
+
            } else if (time == "Dinner") {
                // Suggest a random meal from the dinnerMeals list
                val meal = dinnerMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
            } else if (time == "AfterD") {
                // Suggest a random meal from the afterDinnerMeals list
                val meal = afterDinnerMeals.random()
                EdtMeal.setText(meal)
+               Log.d("MealsPage", "Meal suggested: $meal")
            } else {
                // Display an error message if the time entered is invalid
                EdtMeal.setText("Invalid time")
                EdtTime.setText("")
                EdtTime.requestFocus()
+               Log.d("MealsPage", "Invalid time entered")
 
 
            }
            // Reset button click listener
           BtnReset.setOnClickListener {
               // Clear the time and meal fields
+              Log.d("MealsPage", "Reset button clicked")
               EdtTime.setText("")
               EdtMeal.setText("")
               EdtTime.requestFocus()
