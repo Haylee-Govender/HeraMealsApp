@@ -210,5 +210,20 @@ PICS OF APP
 
 ![secondpage](https://github.com/user-attachments/assets/01ceb0be-3730-405e-8e22-a41e17b94ae7)
 
+![firstCode](https://github.com/user-attachments/assets/10ef60eb-b1c9-4528-9689-b18be424d743)
+
+![secondcode](https://github.com/user-attachments/assets/d274b696-3d9c-4722-aaa3-74a870cd9ae0)
+
+![secondcode2](https://github.com/user-attachments/assets/d58432ee-ab07-41b1-ad0d-acfc51b22678)
+
+![secondcode3](https://github.com/user-attachments/assets/cf97bd15-7f5b-440f-81f1-95d8af8a6082)
+
+![secondcode4](https://github.com/user-attachments/assets/73597fdd-c0d3-4a15-a101-df58ad4edadc)
+
+![secondcode5](https://github.com/user-attachments/assets/4bc32b65-7368-494b-9ed9-e02aa99af448)
+
+
+
+
 
  
