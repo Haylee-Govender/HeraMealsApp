@@ -79,130 +79,90 @@ While currently displaying food recommendations in an EditText based on user-inp
 Utilizing GitHub for version control ensures code maintainability, and the potential for GitHub Actions offers opportunities to automate testing and deployment as the app evolves.
 Even a simple application benefits from version control, and by setting up the repository correctly from the beginning, scaling the application becomes easier.
 
-Code for first page 
-package vcmsa.haylee.heramealsapp
+# HeraMealsApp - Meal Suggestion Application
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.widget.Button
-import android.content.Intent
+This document describes the functionality and usage of the HerMealsApp, a Kotlin-based Android application that suggests meal ideas based on the time of day.
 
+## Overview
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        // Open MealsPage when BtnStart is clicked
-        val BtnStart = findViewById<Button>(R.id.BtnStart)
-        BtnStart.setOnClickListener {
-            val intent = Intent(this, MealsPage::class.java)
-            startActivity(intent)
-        }
+HerMealsApp is a simple Android application designed to provide meal suggestions to users based on the time of day they input. It consists of two main screens: a starting screen and a meal suggestion screen.
 
+## Files
 
-    }
-}
+* `MainActivity.kt`: Handles the initial screen and navigation to the meal suggestion screen.
+* `MealsPage.kt`: Manages the meal suggestion logic and user interactions.
+* `activity_main.xml`: Layout file for the main activity.
+* `activity_meals_page.xml`: Layout file for the meal suggestion activity.
 
-Code for second page
-package vcmsa.haylee.heramealsapp
+## Dependencies
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.widget.Button
-import android.widget.EditText
+* AndroidX AppCompat
+* AndroidX Core KTX
+* AndroidX Activity KTX
 
-class MealsPage : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_meals_page)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        // Initialize variables
-        val BtnSuggest = findViewById<Button>(R.id.BtnSuggest)
-        val BtnReset = findViewById<Button>(R.id.BtnReset)
-        val EdtTime = findViewById<EditText>(R.id.EdtTime)
-        val EdtMeal = findViewById<EditText>(R.id.EdtMeal)
-        // Initialize meal lists
-        val morningMeals = listOf("Oatmeal", "Greek Yogurt", "Smoothie", "Eggs", "Toast","Pancakes", "Waffles", "Croissants", "Avocado Toast","cereal")
-        val midMorningMeals = listOf("Fruit Salad", "Protein Bar", "Yogurt with Berries", "Cheese and Crackers", "Hummus with Veggies","Rice Cakes with Peanut Butter", "Granola Bar", "Protein Shake", "Cheese and Fruit","Smoothie Bowl")
-        val afternoonMeals = listOf("Grilled Cheese Sandwich", "Chicken Salad Sandwich", "Turkey Sandwich", "Vegetable Soup", "Smoothie","Salad", "Sandwich", "Soup", "Rice Bowl", "Fruit Bowl")
-        val midAfternoonMeals = listOf("Fruit Salad", "Protein Bar", "Yogurt with Berries", "Cheese and Crackers", "Hummus with Veggies","Rice Cakes with Peanut Butter", "Granola Bar", "Protein Shake", "Cheese and Fruit","Smoothie Bowl")
-        val dinnerMeals = listOf("Chicken Parmesan", "Salmon with Vegetables", "Beef Stir Fry", "Vegetable Curry", "Pasta with Meatballs","Pizza", "Burger", "Sushi", "Tacos", "Steak")
-        val afterDinnerMeals = listOf("Fruit Salad", "Protein Bar", "Yogurt with Berries", "Cheese and Crackers", "Hummus with Veggies","Rice Cakes with Peanut Butter", "Granola Bar", "Protein Shake", "Cheese and Fruit","Smoothie Bowl")
+## Usage
 
-       // Suggest meal button click listener
-       BtnSuggest.setOnClickListener {
-           // Check if time is entered
-           if (EdtTime.text.toString().isEmpty()) {
-               EdtMeal.setText("Please enter the time of day")
-               EdtTime.requestFocus()
+### Prerequisites
 
-           }
-           // Get the time entered by the user
-           val time = EdtTime.text.toString()
-           // Suggest a meal based on the time entered by the user
-           if (time == "Morning") {
-               // Suggest a random meal from the morningMeals list
-               val meal = morningMeals.random()
-               EdtMeal.setText(meal)
-           } else if (time == "MidM") {
-               // Suggest a random meal from the midMorningMeals list
-               val meal = midMorningMeals.random()
-               EdtMeal.setText(meal)
-               } else if (time == "Afternoon") {
-                   // Suggest a random meal from the afternoonMeals list
-               val meal = afternoonMeals.random()
-               EdtMeal.setText(meal)
-           } else if (time == "MidA") {
-               // Suggest a random meal from the midAfternoonMeals list
-               val meal = midAfternoonMeals.random()
-               EdtMeal.setText(meal)
-           } else if (time == "Dinner") {
-               // Suggest a random meal from the dinnerMeals list
-               val meal = dinnerMeals.random()
-               EdtMeal.setText(meal)
-           } else if (time == "AfterD") {
-               // Suggest a random meal from the afterDinnerMeals list
-               val meal = afterDinnerMeals.random()
-               EdtMeal.setText(meal)
-           } else {
-               // Display an error message if the time entered is invalid
-               EdtMeal.setText("Invalid time")
-               EdtTime.setText("")
-               EdtTime.requestFocus()
+* Android Studio installed.
+* Android SDK configured.
+* An Android emulator or physical Android device.
 
+### Installation and Execution
 
-           }
-           // Reset button click listener
-          BtnReset.setOnClickListener {
-              // Clear the time and meal fields
-              EdtTime.setText("")
-              EdtMeal.setText("")
-              EdtTime.requestFocus()
+1.  **Clone the Repository (if applicable):**
+    * If you have the code in a repository, clone it to your local machine.
+2.  **Open Project in Android Studio:**
+    * Launch Android Studio.
+    * Select "Open" and navigate to the project directory.
+    * Open the project.
+3.  **Build and Run:**
+    * Connect an Android emulator or a physical Android device to your computer.
+    * Click the "Run" button in Android Studio to build and run the application.
 
-          }
+### Functionality
 
-       }
+**MainActivity:**
 
+* Displays a "Start" button.
+* When the "Start" button is clicked, it navigates to the `MealsPage`.
 
-    }
-}  
+**MealsPage:**
+
+* Provides an `EditText` field (`EdtTime`) for users to enter the time of day.
+* Provides an `EditText` field (`EdtMeal`) to display the suggested meal.
+* Contains a "Suggest" button (`BtnSuggest`) to generate meal suggestions.
+* Contains a "Reset" button (`BtnReset`) to clear input fields.
+* **Suggest Button Logic:**
+    * Checks if the `EdtTime` field is empty. If empty, displays an error message.
+    * If the `EdtTime` field is not empty, it retrieves the entered time.
+    * It then compares the entered time with predefined time slots ("Morning", "MidM", "Afternoon", "MidA", "Dinner", "AfterD").
+    * Based on the time slot, it randomly selects a meal from a corresponding list of meal options.
+    * Displays the selected meal in the `EdtMeal` field.
+    * If the time entered is invalid, it displays "Invalid time" in the `EdtMeal` field.
+* **Reset Button Logic:**
+    * Clears the contents of the `EdtTime` and `EdtMeal` fields.
+
+### Meal Lists
+
+The application uses predefined lists for each time slot:
+
+* `morningMeals`: Oatmeal, Greek Yogurt, Smoothie, Eggs, Toast, Pancakes, Waffles, Croissants, Avocado Toast, cereal.
+* `midMorningMeals`: Fruit Salad, Protein Bar, Yogurt with Berries, Cheese and Crackers, Hummus with Veggies, Rice Cakes with Peanut Butter, Granola Bar, Protein Shake, Cheese and Fruit, Smoothie Bowl.
+* `afternoonMeals`: Grilled Cheese Sandwich, Chicken Salad Sandwich, Turkey Sandwich, Vegetable Soup, Smoothie, Salad, Sandwich, Soup, Rice Bowl, Fruit Bowl.
+* `midAfternoonMeals`: Fruit Salad, Protein Bar, Yogurt with Berries, Cheese and Crackers, Hummus with Veggies, Rice Cakes with Peanut Butter, Granola Bar, Protein Shake, Cheese and Fruit, Smoothie Bowl.
+* `dinnerMeals`: Chicken Parmesan, Salmon with Vegetables, Beef Stir Fry, Vegetable Curry, Pasta with Meatballs, Pizza, Burger, Sushi, Tacos, Steak.
+* `afterDinnerMeals`: Fruit Salad, Protein Bar, Yogurt with Berries, Cheese and Crackers, Hummus with Veggies, Rice Cakes with Peanut Butter, Granola Bar, Protein Shake, Cheese and Fruit, Smoothie Bowl.
+
+### Notes
+
+* The time input is case-sensitive.
+* Meal suggestions are randomly selected from the predefined lists.
+* Future improvements could include:
+    * Adding a database for meal storage.
+    * Implementing a more user-friendly interface.
+    * Adding error handling for invalid input.
+    * Adding more meal variety.
 
 PICS OF APP 
 
