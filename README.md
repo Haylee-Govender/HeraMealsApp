@@ -78,30 +78,29 @@ While currently displaying food recommendations in an EditText based on user-inp
 Utilizing GitHub for version control ensures code maintainability, and the potential for GitHub Actions offers opportunities to automate testing and deployment as the app evolves.
 Even a simple application benefits from version control, and by setting up the repository correctly from the beginning, scaling the application becomes easier.
 
-# HeraMealsApp - Meal Suggestion Application
+ HeraMealsApp - Meal Suggestion Application
 
 This document describes the functionality and usage of the HerMealsApp, a Kotlin-based Android application that suggests meal ideas based on the time of day.
 
-## Overview
+ Overview
 
 HerMealsApp is a simple Android application designed to provide meal suggestions to users based on the time of day they input. It consists of two main screens: a starting screen and a meal suggestion screen.
 
-## Files
+ Files
 
 * `MainActivity.kt`: Handles the initial screen and navigation to the meal suggestion screen.
 * `MealsPage.kt`: Manages the meal suggestion logic and user interactions.
 * `activity_main.xml`: Layout file for the main activity.
 * `activity_meals_page.xml`: Layout file for the meal suggestion activity.
 
-## Dependencies
+ Dependencies
 
 * AndroidX AppCompat
 * AndroidX Core KTX
 * AndroidX Activity KTX
 
-## Usage
-
-### Prerequisites
+ Usage
+Prerequisites
 
 * Android Studio installed.
 * Android SDK configured.
@@ -109,40 +108,40 @@ HerMealsApp is a simple Android application designed to provide meal suggestions
 
 ### Installation and Execution
 
-1.  **Clone the Repository (if applicable):**
+1.  Clone the Repository (if applicable):
     * If you have the code in a repository, clone it to your local machine.
-2.  **Open Project in Android Studio:**
+2.  Open Project in Android Studio:
     * Launch Android Studio.
     * Select "Open" and navigate to the project directory.
     * Open the project.
-3.  **Build and Run:**
+3.  Build and Run:
     * Connect an Android emulator or a physical Android device to your computer.
     * Click the "Run" button in Android Studio to build and run the application.
 
-### Functionality
+ Functionality
 
-**MainActivity:**
+MainActivity:
 
 * Displays a "Start" button.
 * When the "Start" button is clicked, it navigates to the `MealsPage`.
 
-**MealsPage:**
+MealsPage:
 
 * Provides an `EditText` field (`EdtTime`) for users to enter the time of day.
 * Provides an `EditText` field (`EdtMeal`) to display the suggested meal.
 * Contains a "Suggest" button (`BtnSuggest`) to generate meal suggestions.
 * Contains a "Reset" button (`BtnReset`) to clear input fields.
-* **Suggest Button Logic:**
+  Suggest Button Logic:
     * Checks if the `EdtTime` field is empty. If empty, displays an error message.
     * If the `EdtTime` field is not empty, it retrieves the entered time.
     * It then compares the entered time with predefined time slots ("Morning", "MidM", "Afternoon", "MidA", "Dinner", "AfterD").
     * Based on the time slot, it randomly selects a meal from a corresponding list of meal options.
     * Displays the selected meal in the `EdtMeal` field.
     * If the time entered is invalid, it displays "Invalid time" in the `EdtMeal` field.
-* **Reset Button Logic:**
+Reset Button Logic:
     * Clears the contents of the `EdtTime` and `EdtMeal` fields.
 
-### Meal Lists
+ Meal Lists
 
 The application uses predefined lists for each time slot:
 
@@ -153,7 +152,7 @@ The application uses predefined lists for each time slot:
 * `dinnerMeals`: Chicken Parmesan, Salmon with Vegetables, Beef Stir Fry, Vegetable Curry, Pasta with Meatballs, Pizza, Burger, Sushi, Tacos, Steak.
 * `afterDinnerMeals`: Fruit Salad, Protein Bar, Yogurt with Berries, Cheese and Crackers, Hummus with Veggies, Rice Cakes with Peanut Butter, Granola Bar, Protein Shake, Cheese and Fruit, Smoothie Bowl.
 
-### Notes
+Notes
 
 * The time input is case-sensitive.
 * Meal suggestions are randomly selected from the predefined lists.
